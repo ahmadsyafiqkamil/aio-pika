@@ -98,7 +98,7 @@ class RPC(Base):
         return future
 
     @shield
-    async def close(self):
+    async def on_close(self, exc=None, *args, **kwargs):
         if self.result_queue is None:
             log.warning("RPC already closed")
             return
